@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base app theme. Compose (MediMateTheme) drives in-app colours;
+         this XML theme only styles the window before Compose takes over,
+         with a branded background so there is no white flash on the splash. -->
+    <style name="Theme.MediMate" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/brand_primary</item>
+        <item name="android:statusBarColor">@color/brand_dark</item>
+        <item name="android:navigationBarColor">@color/brand_dark</item>
+    </style>
+</resources>

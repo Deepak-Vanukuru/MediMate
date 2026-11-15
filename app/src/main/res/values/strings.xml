@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MediMate</string>
+    <string name="app_tagline">Your medicines, managed safely</string>
+
+    <!-- Auth -->
+    <string name="welcome_back">Welcome back</string>
+    <string name="create_account">Create your account</string>
+    <string name="display_name">Display name</string>
+    <string name="pin">PIN (4–8 digits)</string>
+    <string name="confirm_pin">Confirm PIN</string>
+    <string name="enable_biometric">Unlock with fingerprint / face</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+    <string name="use_biometric">Use biometric</string>
+
+    <!-- Medical disclaimer -->
+    <string name="disclaimer_short">MediMate provides information only and is not a substitute for professional medical advice.</string>
+
+    <!-- Permissions -->
+    <string name="camera_rationale">MediMate uses the camera only to scan a medicine box barcode. Images are processed on your device and never uploaded.</string>
+    <string name="notifications_rationale">Allow notifications so MediMate can remind you to take your medicines on time.</string>
+</resources>
