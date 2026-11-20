@@ -9,6 +9,7 @@ import uk.ac.tees.mad.s3533898.feature.auth.LoginScreen
 import uk.ac.tees.mad.s3533898.feature.auth.RegisterScreen
 import uk.ac.tees.mad.s3533898.feature.home.HomeScreen
 import uk.ac.tees.mad.s3533898.feature.home.PlaceholderScreen
+import uk.ac.tees.mad.s3533898.feature.medicine.AddMedicineScreen
 import uk.ac.tees.mad.s3533898.feature.splash.SplashScreen
 
 /**
@@ -58,11 +59,7 @@ fun MediMateNavHost(navController: NavHostController = rememberNavController()) 
         }
 
         composable(Screen.Add.route) {
-            PlaceholderScreen(
-                title = "Add medicine",
-                message = "Adding medicines by name or barcode arrives in Sprint 2 and 3.",
-                onBack = { navController.popBackStack() }
-            )
+            AddMedicineScreen(onDone = { navController.popBackStack() })
         }
 
         composable(Screen.Reminders.route) {
