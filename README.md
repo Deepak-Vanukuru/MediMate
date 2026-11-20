@@ -1,6 +1,6 @@
 # MediMate, Medication Manager & Interaction Checker
 
-CIS4034-N Mobile App Development · Teesside University · Deepak Sepuk (S3533898)
+CIS4034-N Mobile App Development · Teesside University · Deepak Vanukuru (S3533898)
 Package: `uk.ac.tees.mad.s3533898`
 
 MediMate is an offline first Android app that helps people who take several
