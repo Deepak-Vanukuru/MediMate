@@ -1,5 +1,6 @@
 package uk.ac.tees.mad.s3533898.feature.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -48,6 +49,7 @@ import uk.ac.tees.mad.s3533898.domain.model.Medicine
 @Composable
 fun HomeScreen(
     onAddClick: () -> Unit,
+    onMedicineClick: (Long) -> Unit,
     onRemindersClick: () -> Unit,
     onProfileClick: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
@@ -92,7 +94,7 @@ fun HomeScreen(
                         )
                     }
                     items(state.medicines, key = { it.id }) { medicine ->
-                        MedicineCard(medicine = medicine)
+                        MedicineCard(medicine = medicine, onClick = { onMedicineClick(medicine.id) })
                     }
                     item {
                         Text(
@@ -109,8 +111,8 @@ fun HomeScreen(
 }
 
 @Composable
-private fun MedicineCard(medicine: Medicine) {
-    Card(modifier = Modifier.fillMaxWidth()) {
+private fun MedicineCard(medicine: Medicine, onClick: () -> Unit) {
+    Card(modifier = Modifier.fillMaxWidth().clickable(onClick = onClick)) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically

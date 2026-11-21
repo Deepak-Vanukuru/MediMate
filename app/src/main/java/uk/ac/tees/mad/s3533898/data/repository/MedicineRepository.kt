@@ -22,5 +22,9 @@ class MedicineRepository @Inject constructor(
 
     suspend fun getMedicine(id: Long): Medicine? = medicineDao.getById(id)?.toDomain()
 
-    suspend fun add(medicine: Medicine): Long = medicineDao.insert(medicine.toEntity())
+    suspend fun addOrUpdate(medicine: Medicine): Long =
+        if (medicine.id == 0L) medicineDao.insert(medicine.toEntity())
+        else { medicineDao.update(medicine.toEntity()); medicine.id }
+
+    suspend fun delete(medicine: Medicine) = medicineDao.delete(medicine.toEntity())
 }

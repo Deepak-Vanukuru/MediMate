@@ -14,7 +14,14 @@ sealed class Screen(val route: String) {
     data object Login : Screen("login")
 
     data object Home : Screen("home")
-    data object Add : Screen("add")
+
+    /** Add (no id) or edit (with id) a medicine. */
+    data object MedicineForm : Screen("medicine_form?medicineId={medicineId}") {
+        const val ARG_ID = "medicineId"
+        fun addRoute() = "medicine_form"
+        fun editRoute(id: Long) = "medicine_form?medicineId=$id"
+    }
+
     data object Reminders : Screen("reminders")
     data object Profile : Screen("profile")
 }
