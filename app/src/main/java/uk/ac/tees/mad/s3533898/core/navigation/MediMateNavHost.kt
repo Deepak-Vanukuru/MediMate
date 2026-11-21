@@ -2,13 +2,16 @@ package uk.ac.tees.mad.s3533898.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import uk.ac.tees.mad.s3533898.feature.auth.LoginScreen
 import uk.ac.tees.mad.s3533898.feature.auth.RegisterScreen
 import uk.ac.tees.mad.s3533898.feature.home.HomeScreen
 import uk.ac.tees.mad.s3533898.feature.home.PlaceholderScreen
+import uk.ac.tees.mad.s3533898.feature.medicine.AddEditMedicineScreen
 import uk.ac.tees.mad.s3533898.feature.splash.SplashScreen
 
 /**
@@ -51,18 +54,24 @@ fun MediMateNavHost(navController: NavHostController = rememberNavController()) 
 
         composable(Screen.Home.route) {
             HomeScreen(
-                onAddClick = { navController.navigate(Screen.Add.route) },
+                onAddClick = { navController.navigate(Screen.MedicineForm.addRoute()) },
+                onMedicineClick = { id -> navController.navigate(Screen.MedicineForm.editRoute(id)) },
                 onRemindersClick = { navController.navigate(Screen.Reminders.route) },
                 onProfileClick = { navController.navigate(Screen.Profile.route) }
             )
         }
 
-        composable(Screen.Add.route) {
-            PlaceholderScreen(
-                title = "Add medicine",
-                message = "Adding medicines by name or barcode arrives in Sprint 2 and 3.",
-                onBack = { navController.popBackStack() }
+        composable(
+            route = Screen.MedicineForm.route,
+            arguments = listOf(
+                navArgument(Screen.MedicineForm.ARG_ID) {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
             )
+        ) {
+            AddEditMedicineScreen(onDone = { navController.popBackStack() })
         }
 
         composable(Screen.Reminders.route) {
